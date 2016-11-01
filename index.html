@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>Giph-O-Rama</title>
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
-<body>
+<body background="http://failfestival.org/wp-content/uploads/2015/09/fail-festival-logo.jpg">
 	<div class="container">
 		<h1>Funny Epic Fails</h1>
 	</div>
@@ -14,7 +16,7 @@
     <input type="text" id="fail-input"><br>
     
     <!-- Button triggers new movie to be added -->
-    <input id="addFail" type="submit" value="Add A Fail!">
+    <input id="addFail" type="submit" value="Fail!">
   </form>
 
 
@@ -58,13 +60,13 @@ function displayGiphy(){
 
 function addButtons(){ 
 
-		// Deletes the movies prior to adding new movies (this is necessary otherwise you will have repeat buttons)
+		// Deletes the gifs prior to adding new gifs (this is necessary otherwise you will have repeat buttons)
 		$('#buttonsView').empty();
 
-		// Loops through the array of movies
+		// Loops through the array of gifs
 		for (var i = 0; i < topics.length; i++){
 
-			// Then dynamicaly generates buttons for each movie in the array
+			// Then dynamicaly generates buttons for each gif in the array
 
 			// Note the jQUery syntax here... 
 		    var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -91,7 +93,7 @@ $('#addFail').on('click', function(){
 
 	// ========================================================
 
-	// Generic function for displaying the movieInfo
+	// Generic function for displaying the gif
 	$(document).on('click', '.fail', displayGiphy);
 
 
@@ -99,7 +101,17 @@ $('#addFail').on('click', function(){
 
 	// This calls the renderButtons() function
 	addButtons();
-
+$('.gif').on('click', function(){
+            var state = $(this).attr('data-state');
+           if( state === 'still'){
+                   $(this).attr('src', $(this).attr('data-animate'));
+                   $(this).attr('data-state', 'animate');
+                }
+                else if (state === 'animate'){
+                $(this).attr('src', $(this). attr('data-still'));
+                $(this).attr('data-state', 'still');
+            }
+            });
 
 
 
