@@ -21,7 +21,7 @@ function displayGiphy(){
                     failImage.attr('data-state', 'still')
 
                     failImage.attr('src' ,results[i].images.fixed_height_still.url);
-
+                    failImage.attr('data-still',results[i].images.fixed_height_still.url);
                     failImage.attr('data-animate', results[i].images.fixed_height.url);
 
                     failImage.addClass('images');
