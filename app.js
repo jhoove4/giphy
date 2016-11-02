@@ -5,7 +5,7 @@ var topics = ["Snowboarding", "Slam Dunk", "Skateboarding", "Fishing", "Squat", 
 function displayGiphy(){
 	console.log("working");
 	var giph = $(this).attr('data-name');
-	var giphURL = "http://api.giphy.com/v1/gifs/search?q=" + giph + "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
+	var giphURL = "https://api.giphy.com/v1/gifs/search?q=" + giph + "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
 	console.log(giphURL);
 	$.ajax({url: giphURL, method: 'GET'})
 	.done(function(response) {
