@@ -18,10 +18,14 @@ function displayGiphy(){
 			   var p = $('<p>').text("Rating: " + rating);
 
                     var failImage = $('<img>');
-                    failImage.attr('data-animate', results[i].images.fixed_height.url);
-                    failImage.attr('data-still' ,results[i].images.fixed_height_still.url);
-                    failImage.addClass('images');
                     failImage.attr('data-state', 'still')
+
+                    failImage.attr('src' ,results[i].images.fixed_height_still.url);
+
+                    failImage.attr('data-animate', results[i].images.fixed_height.url);
+
+                    failImage.addClass('images');
+
                     failDiv.append(p)
                     // failDiv.attr("data-state", 'animate');
                     failDiv.append(failImage)
@@ -82,11 +86,11 @@ $(document).on('click', '.images', function(){
 			var stillImgUrl = $(this).attr('data-still');
             console.log(state);
            if( state === 'still'){
-                   $(this).attr('src', 'animatedImgUrl');
+                   $(this).attr('src', animatedImgUrl);
                    $(this).attr('data-state', 'animate');
                 }
                 else if (state === 'animate'){
-                $(this).attr('src', 'stillImgUrl');
+                $(this).attr('src', stillImgUrl);
                 $(this).attr('data-state', 'still');
              }
             });
