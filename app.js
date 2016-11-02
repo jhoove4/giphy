@@ -79,11 +79,11 @@ $(document).on('click', '.images', function(){
             var state = $(this).attr('data-state');
             console.log(state);
            if( state === 'still'){
-                   $(this).attr('src', '.data-animate');
+                   $(this).attr('src', 'data-animate');
                    $(this).attr('data-state', 'data-animate');
                 }
                 else if (state === 'animate'){
-                $(this).attr('src', $(this).attr('data-still'));
+                $(this).attr('src', 'data-still');
                 $(this).attr('data-state', 'data-still');
              }
             });
