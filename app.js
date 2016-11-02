@@ -1,11 +1,11 @@
-var topics = ["Snowboarding Fail", "Slam Dunk Fail", "Skateboarding Fail", "Fishing Fail", "Squat Fail", "Tackle Fail", "Dance Fail", "Dog Fail", "Parking Fail", "Coffee Fail", "Sitting Fail", "Birthday Fail", "Kiss Fail", "Music Fail" ];
+var topics = ["Snowboarding", "Slam Dunk", "Skateboarding", "Fishing", "Squat", "Tackle", "Dance", "Dog", "Parking", "Coffee", "Sitting", "Birthday", "Kiss", "Music" ];
 
 //function to display gifs
 
 function displayGiphy(){
 	console.log("working");
 	var giph = $(this).attr('data-name');
-	var giphURL = "http://api.giphy.com/v1/gifs/search?q=" + giph + "&api_key=dc6zaTOxFJmzC&limit=10";
+	var giphURL = "http://api.giphy.com/v1/gifs/search?q=" + giph + "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
 	console.log(giphURL);
 	$.ajax({url: giphURL, method: 'GET'})
 	.done(function(response) {
@@ -72,11 +72,14 @@ $('#addFail').on('click', function(){
 	
 	// This calls the renderButtons() function
 	addButtons();
+
+
+	//sets the state to either still or animated
 $(document).on('click', '.images', function(){
             var state = $(this).attr('data-state');
             console.log(state);
            if( state === 'still'){
-                   $(this).attr('src', $(this).attr('data-animate'));
+                   $(this).attr('src', '.gif string');
                    $(this).attr('data-state', 'animate');
                 }
                 else if (state === 'animate'){
