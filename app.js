@@ -13,14 +13,14 @@ function displayGiphy(){
 			JSON.stringify(response);
 		var results =response.data;
 		for (var i = 0; i < results.length; i++) {
-				var failDiv = $('<div class="fail">');
+				var failDiv = $('<div class="fail-Image">');
 			   var rating = results[i].rating;
 			   var p = $('<p>').text("Rating: " + rating);
 
                     var failImage = $('<img>');
                     failImage.attr('src', results[i].images.fixed_height.url);
                     failImage.addClass('images');
-                    failImage.attr('data-state', 'animate')
+                    failImage.attr('data-state', 'data-still')
                     failDiv.append(p)
                     // failDiv.attr("data-state", 'animate');
                     failDiv.append(failImage)
@@ -79,11 +79,11 @@ $(document).on('click', '.images', function(){
             var state = $(this).attr('data-state');
             console.log(state);
            if( state === 'still'){
-                   $(this).attr('src', '.gif string');
-                   $(this).attr('data-state', 'animate');
+                   $(this).attr('src', '.data-animate');
+                   $(this).attr('data-state', 'data-animate');
                 }
                 else if (state === 'animate'){
                 $(this).attr('src', $(this).attr('data-still'));
-                $(this).attr('data-state', 'still');
+                $(this).attr('data-state', 'data-still');
              }
             });
